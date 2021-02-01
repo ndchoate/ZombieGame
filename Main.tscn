@@ -2,8 +2,8 @@
 
 [ext_resource path="res://World/World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
-[ext_resource path="res://Player1Camera.gd" type="Script" id=3]
-[ext_resource path="res://Player2Camera.gd" type="Script" id=4]
+[ext_resource path="res://Players/Player1Camera.gd" type="Script" id=3]
+[ext_resource path="res://Players/Player2Camera.gd" type="Script" id=4]
 
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
