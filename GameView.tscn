@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://Players/Player2Camera.gd" type="Script" id=2]
+[ext_resource path="res://Players/Player1Camera.gd" type="Script" id=3]
+[ext_resource path="res://Players/Player4Camera.gd" type="Script" id=4]
+[ext_resource path="res://Players/Player3Camera.gd" type="Script" id=5]
+[ext_resource path="res://World/World.tscn" type="PackedScene" id=6]
+
+[node name="GameView" type="Node"]
+script = ExtResource( 1 )
+
+[node name="GameView" type="GridContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportContainer1" type="ViewportContainer" parent="GameView"]
+margin_right = 510.0
+margin_bottom = 298.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="GameView/ViewportContainer1"]
+size = Vector2( 510, 298 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Player1Camera" type="Camera2D" parent="GameView/ViewportContainer1/Viewport"]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+script = ExtResource( 3 )
+
+[node name="World" parent="GameView/ViewportContainer1/Viewport" instance=ExtResource( 6 )]
+
+[node name="ViewportContainer2" type="ViewportContainer" parent="GameView"]
+margin_left = 514.0
+margin_right = 1024.0
+margin_bottom = 298.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="GameView/ViewportContainer2"]
+size = Vector2( 510, 298 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Player2Camera" type="Camera2D" parent="GameView/ViewportContainer2/Viewport"]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+script = ExtResource( 2 )
+
+[node name="ViewportContainer3" type="ViewportContainer" parent="GameView"]
+margin_top = 302.0
+margin_right = 510.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="GameView/ViewportContainer3"]
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Player3Camera" type="Camera2D" parent="GameView/ViewportContainer3/Viewport"]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+script = ExtResource( 5 )
+
+[node name="ViewportContainer4" type="ViewportContainer" parent="GameView"]
+margin_left = 514.0
+margin_top = 302.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="GameView/ViewportContainer4"]
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Player4Camera" type="Camera2D" parent="GameView/ViewportContainer4/Viewport"]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+script = ExtResource( 4 )

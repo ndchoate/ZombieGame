@@ -42,6 +42,8 @@ func move_state(delta):
 	input_vector.x = Input.get_action_strength("right%s" % ID) - Input.get_action_strength("left%s" % ID)
 	input_vector.y = Input.get_action_strength("down%s" % ID) - Input.get_action_strength("up%s" % ID)
 	
+	
+	
 	input_vector = input_vector.normalized()
 
 	if input_vector != Vector2.ZERO:

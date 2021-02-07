@@ -3,22 +3,22 @@ extends Node
 # Implemented this using an awesome KidsCanCode tutorial:
 # https://www.youtube.com/watch?v=QsfG8J50hP8&feature=emb_title
 
-onready var viewport_container1 = $"GridContainer/ViewportContainer1"
-onready var viewport_container2 = $"GridContainer/ViewportContainer2"
-onready var viewport_container3 = $"GridContainer/ViewportContainer3"
-onready var viewport_container4 = $"GridContainer/ViewportContainer4"
+onready var viewport_container1 = $"GameView/ViewportContainer1"
+onready var viewport_container2 = $"GameView/ViewportContainer2"
+onready var viewport_container3 = $"GameView/ViewportContainer3"
+onready var viewport_container4 = $"GameView/ViewportContainer4"
 
-onready var viewport1 = $"GridContainer/ViewportContainer1/Viewport"
-onready var viewport2 = $"GridContainer/ViewportContainer2/Viewport"
-onready var viewport3 = $"GridContainer/ViewportContainer3/Viewport"
-onready var viewport4 = $"GridContainer/ViewportContainer4/Viewport"
+onready var viewport1 = $"GameView/ViewportContainer1/Viewport"
+onready var viewport2 = $"GameView/ViewportContainer2/Viewport"
+onready var viewport3 = $"GameView/ViewportContainer3/Viewport"
+onready var viewport4 = $"GameView/ViewportContainer4/Viewport"
 
-onready var camera1 = $"GridContainer/ViewportContainer1/Viewport/Player1Camera"
-onready var camera2 = $"GridContainer/ViewportContainer2/Viewport/Player2Camera"
-onready var camera3 = $"GridContainer/ViewportContainer3/Viewport/Player3Camera"
-onready var camera4 = $"GridContainer/ViewportContainer4/Viewport/Player4Camera"
+onready var camera1 = $"GameView/ViewportContainer1/Viewport/Player1Camera"
+onready var camera2 = $"GameView/ViewportContainer2/Viewport/Player2Camera"
+onready var camera3 = $"GameView/ViewportContainer3/Viewport/Player3Camera"
+onready var camera4 = $"GameView/ViewportContainer4/Viewport/Player4Camera"
 
-onready var world = $"GridContainer/ViewportContainer1/Viewport/World"
+onready var world = $"GameView/ViewportContainer1/Viewport/World"
 
 
 func _ready():
