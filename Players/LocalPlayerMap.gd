@@ -16,6 +16,7 @@ will only be controllers
 Returns - (int) the player ID that the device was assigned to
 """
 func add_device(device_id):
+	print("Adding player mapping for device ID: " + str(device_id))
 	if playerToDevice["player1"] == null:
 		playerToDevice["player1"] = device_id
 		return 1

@@ -39,8 +39,11 @@ func move_state(delta):
 	
 	# Think of the math here as you're moving a joystick and it's creating a vector
 	# on a grid
-	input_vector.x = Input.get_action_strength("right%s" % ID) - Input.get_action_strength("left%s" % ID)
-	input_vector.y = Input.get_action_strength("down%s" % ID) - Input.get_action_strength("up%s" % ID)
+	#input_vector.x = Input.get_action_strength("right%s" % ID) - Input.get_action_strength("left%s" % ID)
+	#input_vector.y = Input.get_action_strength("down%s" % ID) - Input.get_action_strength("up%s" % ID)
+	
+	input_vector.x = Input.get_action_strength("player%s_right" % ID) - Input.get_action_strength("player%s_left" % ID)
+	input_vector.y = Input.get_action_strength("player%s_down" % ID) - Input.get_action_strength("player%s_up" % ID)
 	
 	input_vector = input_vector.normalized()
 

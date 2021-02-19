@@ -23,6 +23,8 @@ ID = 2
 
 [node name="Player3" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 174.905, 541.004 )
+ID = 3
 
 [node name="Player4" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 790.5, 535.86 )
+ID = 4

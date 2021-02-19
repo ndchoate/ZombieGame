@@ -58,6 +58,7 @@ func _input(event):
 	var all_players_ready = check_player_ready_statuses()
 	if all_players_ready:
 		print("All players ready!")
+		create_input_actions_for_players()
 		get_tree().change_scene("res://GameView.tscn")
 
 
@@ -131,3 +132,98 @@ func check_player_ready_statuses():
 			all_players_ready = false
 
 	return all_players_ready
+	
+	
+func create_input_actions_for_players():
+	var players = local_player_map.playerToDevice.keys()
+	for player_id in players:
+		var device_id = local_player_map.playerToDevice[player_id]
+		
+		if device_id != null:
+			print("Creating input actions for " + player_id + " with device ID " 
+				+ str(device_id))
+			if device_id != -1:
+				# device_id is for a gamepad
+				create_up_action_gamepad(player_id, device_id)
+				create_down_action_gamepad(player_id, device_id)
+				create_left_action_gamepad(player_id, device_id)
+				create_right_action_gamepad(player_id, device_id)
+			else:
+				# device_id is for the one keyboard allowed
+				# TODO: figure out how to support multiple keyboards?
+				create_up_action_keyboard(player_id)
+				create_down_action_keyboard(player_id)
+				create_left_action_keyboard(player_id)
+				create_right_action_keyboard(player_id)
+
+
+func create_up_action_gamepad(player_id, device_id):
+	var action = player_id + "_up"
+	InputMap.add_action(action)
+	var ev = InputEventJoypadMotion.new()
+	ev.axis = JOY_AXIS_1
+	ev.axis_value = -0.1  # Ranges from -1.0 to 1.0. How high/low should this be?
+	ev.set_device(device_id)
+	InputMap.action_add_event(action, ev)
+
+
+func create_down_action_gamepad(player_id, device_id):
+	var action = player_id + "_down"
+	InputMap.add_action(action)
+	var ev = InputEventJoypadMotion.new()
+	ev.axis = JOY_AXIS_1
+	ev.axis_value = 0.1
+	ev.set_device(device_id)
+	InputMap.action_add_event(action, ev)
+
+
+func create_left_action_gamepad(player_id, device_id):
+	var action = player_id + "_left"
+	InputMap.add_action(action)
+	var ev = InputEventJoypadMotion.new()
+	ev.axis = JOY_AXIS_0
+	ev.axis_value = -0.1
+	ev.set_device(device_id)
+	InputMap.action_add_event(action, ev)
+
+
+func create_right_action_gamepad(player_id, device_id):
+	var action = player_id + "_right"
+	InputMap.add_action(action)
+	var ev = InputEventJoypadMotion.new()
+	ev.axis = JOY_AXIS_0
+	ev.axis_value = 0.1
+	ev.set_device(device_id)
+	InputMap.action_add_event(action, ev)
+
+
+func create_up_action_keyboard(player_id):
+	var action = player_id + "_up"
+	InputMap.add_action(action)
+	var ev = InputEventKey.new()
+	ev.scancode = KEY_W
+	InputMap.action_add_event(action, ev)
+
+
+func create_down_action_keyboard(player_id):
+	var action = player_id + "_down"
+	InputMap.add_action(action)
+	var ev = InputEventKey.new()
+	ev.scancode = KEY_S
+	InputMap.action_add_event(action, ev)
+
+
+func create_left_action_keyboard(player_id):
+	var action = player_id + "_left"
+	InputMap.add_action(action)
+	var ev = InputEventKey.new()
+	ev.scancode = KEY_A
+	InputMap.action_add_event(action, ev)
+
+
+func create_right_action_keyboard(player_id):
+	var action = player_id + "_right"
+	InputMap.add_action(action)
+	var ev = InputEventKey.new()
+	ev.scancode = KEY_D
+	InputMap.action_add_event(action, ev)
