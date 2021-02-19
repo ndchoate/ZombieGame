@@ -3,6 +3,8 @@ extends Node
 # Implemented this using an awesome KidsCanCode tutorial:
 # https://www.youtube.com/watch?v=QsfG8J50hP8&feature=emb_title
 
+onready var game_view = $"GameView"
+
 onready var viewport_container1 = $"GameView/ViewportContainer1"
 onready var viewport_container2 = $"GameView/ViewportContainer2"
 onready var viewport_container3 = $"GameView/ViewportContainer3"
@@ -20,6 +22,8 @@ onready var camera4 = $"GameView/ViewportContainer4/Viewport/Player4Camera"
 
 onready var world = $"GameView/ViewportContainer1/Viewport/World"
 
+onready var local_player_map = $"/root/LocalPlayerMap"
+
 
 func _ready():
 	viewport2.world_2d = viewport1.world_2d
@@ -31,8 +35,19 @@ func _ready():
 	camera3.target = world.get_node("YSort/Player3")
 	camera4.target = world.get_node("YSort/Player4")
 	
-	#viewport_container3.hide()
-	#viewport_container4.hide()
+	var local_players_count = 0
+	for player in local_player_map.playerToDevice.values():
+		if player != null:
+			local_players_count += 1
+	
+	if local_players_count > 1:
+		var viewport_containers = [viewport_container2, viewport_container3, viewport_container4]
+		# Since the player one viewport has to always be visible, start the iteration
+		# at one
+		for i in range(1, local_players_count):
+			viewport_containers[i].show()
+	else:
+		game_view.columns = 1
 	
 	# The tutorial had their world laid out in a TileMap node. Need to figure out
 	# if you should do things that way, or find a different way to set camera

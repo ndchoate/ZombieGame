@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Player1/malePerson_frame.png" type="Texture" id=1]
 [ext_resource path="res://UI/fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=2]
@@ -6,6 +6,10 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
 font_data = ExtResource( 2 )
 
 [node name="PlayerJoinScreen" type="Control"]
@@ -19,6 +23,8 @@ __meta__ = {
 [node name="GridContainer" type="GridContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -0.950012
+margin_bottom = -0.950012
 columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -123,3 +129,99 @@ margin_right = 503.0
 margin_bottom = 291.0
 texture = ExtResource( 1 )
 stretch_mode = 4
+
+[node name="Player1NotReady" type="Label" parent="."]
+visible = false
+margin_left = 387.001
+margin_top = 15.1998
+margin_right = 883.001
+margin_bottom = 46.1998
+custom_fonts/font = SubResource( 2 )
+text = "Ready?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player2NotReady" type="Label" parent="."]
+visible = false
+margin_left = 902.851
+margin_top = 15.1998
+margin_right = 1398.85
+margin_bottom = 46.1998
+custom_fonts/font = SubResource( 2 )
+text = "Ready?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player3NotReady" type="Label" parent="."]
+visible = false
+margin_left = 388.901
+margin_top = 322.05
+margin_right = 884.901
+margin_bottom = 353.05
+custom_fonts/font = SubResource( 2 )
+text = "Ready?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player4NotReady" type="Label" parent="."]
+visible = false
+margin_left = 906.651
+margin_top = 324.9
+margin_right = 1402.65
+margin_bottom = 355.9
+custom_fonts/font = SubResource( 2 )
+text = "Ready?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player1Ready" type="Label" parent="."]
+visible = false
+margin_left = 387.001
+margin_top = 15.1998
+margin_right = 883.001
+margin_bottom = 46.1998
+custom_fonts/font = SubResource( 2 )
+text = "Ready!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player2Ready" type="Label" parent="."]
+visible = false
+margin_left = 902.851
+margin_top = 15.1998
+margin_right = 1398.85
+margin_bottom = 46.1998
+custom_fonts/font = SubResource( 2 )
+text = "Ready!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player3Ready" type="Label" parent="."]
+visible = false
+margin_left = 388.901
+margin_top = 322.05
+margin_right = 884.901
+margin_bottom = 353.05
+custom_fonts/font = SubResource( 2 )
+text = "Ready!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player4Ready" type="Label" parent="."]
+visible = false
+margin_left = 906.651
+margin_top = 324.9
+margin_right = 1402.65
+margin_bottom = 355.9
+custom_fonts/font = SubResource( 2 )
+text = "Ready!"
+__meta__ = {
+"_edit_use_anchors_": false
+}

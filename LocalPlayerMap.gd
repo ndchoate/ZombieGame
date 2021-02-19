@@ -60,3 +60,22 @@ func remove_device(device_id):
 	else:
 		print("Player ID for device " + str(device_id) + " not found")
 		return null
+
+
+func get_player_id_from_device_id(device_id):
+	var players = playerToDevice.keys()
+	for player in players:
+		if playerToDevice.get(player) == device_id:
+			if player == "player1":
+				return 1
+			elif player == "player2":
+				return 2
+			elif player == "player3":
+				return 3
+			elif player == "player4":
+				return 4
+			else:
+				print("Player ID for device " + str(device_id) + " not found")
+				return null
+	
+	return null

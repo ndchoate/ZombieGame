@@ -20,13 +20,13 @@ __meta__ = {
 
 [node name="ViewportContainer1" type="ViewportContainer" parent="GameView"]
 margin_right = 510.0
-margin_bottom = 298.0
+margin_bottom = 596.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
 
 [node name="Viewport" type="Viewport" parent="GameView/ViewportContainer1"]
-size = Vector2( 510, 298 )
+size = Vector2( 510, 596 )
 handle_input_locally = false
 render_target_update_mode = 3
 
@@ -38,8 +38,8 @@ script = ExtResource( 3 )
 [node name="World" parent="GameView/ViewportContainer1/Viewport" instance=ExtResource( 6 )]
 
 [node name="ViewportContainer2" type="ViewportContainer" parent="GameView"]
-margin_left = 514.0
-margin_right = 1024.0
+visible = false
+margin_right = 510.0
 margin_bottom = 298.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -48,7 +48,7 @@ stretch = true
 [node name="Viewport" type="Viewport" parent="GameView/ViewportContainer2"]
 size = Vector2( 510, 298 )
 handle_input_locally = false
-render_target_update_mode = 3
+render_target_update_mode = 0
 
 [node name="Player2Camera" type="Camera2D" parent="GameView/ViewportContainer2/Viewport"]
 current = true
@@ -56,16 +56,17 @@ zoom = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
 
 [node name="ViewportContainer3" type="ViewportContainer" parent="GameView"]
-margin_top = 302.0
+visible = false
 margin_right = 510.0
-margin_bottom = 600.0
+margin_bottom = 596.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
 
 [node name="Viewport" type="Viewport" parent="GameView/ViewportContainer3"]
+size = Vector2( 510, 596 )
 handle_input_locally = false
-render_target_update_mode = 3
+render_target_update_mode = 0
 
 [node name="Player3Camera" type="Camera2D" parent="GameView/ViewportContainer3/Viewport"]
 current = true
@@ -73,17 +74,17 @@ zoom = Vector2( 0.5, 0.5 )
 script = ExtResource( 5 )
 
 [node name="ViewportContainer4" type="ViewportContainer" parent="GameView"]
-margin_left = 514.0
-margin_top = 302.0
-margin_right = 1024.0
-margin_bottom = 600.0
+visible = false
+margin_right = 510.0
+margin_bottom = 596.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
 
 [node name="Viewport" type="Viewport" parent="GameView/ViewportContainer4"]
+size = Vector2( 510, 596 )
 handle_input_locally = false
-render_target_update_mode = 3
+render_target_update_mode = 0
 
 [node name="Player4Camera" type="Camera2D" parent="GameView/ViewportContainer4/Viewport"]
 current = true
