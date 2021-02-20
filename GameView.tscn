@@ -31,8 +31,8 @@ handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="Player1Camera" type="Camera2D" parent="GameView/ViewportContainer1/Viewport"]
+offset = Vector2( 0, -85 )
 current = true
-zoom = Vector2( 0.5, 0.5 )
 script = ExtResource( 3 )
 
 [node name="World" parent="GameView/ViewportContainer1/Viewport" instance=ExtResource( 6 )]
@@ -41,26 +41,26 @@ script = ExtResource( 3 )
 visible = false
 margin_left = 514.0
 margin_right = 1024.0
-margin_bottom = 596.0
+margin_bottom = 298.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
 
 [node name="Viewport" type="Viewport" parent="GameView/ViewportContainer2"]
-size = Vector2( 510, 596 )
+size = Vector2( 510, 298 )
 handle_input_locally = false
 render_target_update_mode = 0
 
 [node name="Player2Camera" type="Camera2D" parent="GameView/ViewportContainer2/Viewport"]
+offset = Vector2( 0, -85 )
 current = true
-zoom = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
 
 [node name="ViewportContainer3" type="ViewportContainer" parent="GameView"]
 visible = false
-margin_top = 302.0
-margin_right = 510.0
-margin_bottom = 600.0
+margin_left = 514.0
+margin_right = 1024.0
+margin_bottom = 298.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
@@ -71,13 +71,14 @@ handle_input_locally = false
 render_target_update_mode = 0
 
 [node name="Player3Camera" type="Camera2D" parent="GameView/ViewportContainer3/Viewport"]
+offset = Vector2( 0, -85 )
 current = true
-zoom = Vector2( 0.5, 0.5 )
 script = ExtResource( 5 )
 
 [node name="ViewportContainer4" type="ViewportContainer" parent="GameView"]
 visible = false
-margin_right = 510.0
+margin_left = 514.0
+margin_right = 1024.0
 margin_bottom = 596.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -89,6 +90,6 @@ handle_input_locally = false
 render_target_update_mode = 0
 
 [node name="Player4Camera" type="Camera2D" parent="GameView/ViewportContainer4/Viewport"]
+offset = Vector2( 0, -85 )
 current = true
-zoom = Vector2( 0.5, 0.5 )
 script = ExtResource( 4 )

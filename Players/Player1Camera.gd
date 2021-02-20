@@ -5,5 +5,6 @@ var target = null
 
 
 func _physics_process(delta):
-	if target:
+	# is_instance_valid checks if the node has been freed or not
+	if target and is_instance_valid(target):
 		position = target.position

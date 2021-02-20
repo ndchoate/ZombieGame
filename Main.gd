@@ -36,16 +36,19 @@ func _ready():
 	camera4.target = world.get_node("YSort/Player4")
 	
 	var local_players_count = 0
-	for player in local_player_map.playerToDevice.values():
-		if player != null:
+	for player_id in local_player_map.playerToDevice.keys():
+		if local_player_map.playerToDevice[player_id] != null:
 			local_players_count += 1
+			
+			enable_player_camera(player_id)
 	
 	if local_players_count > 1:
-		var viewport_containers = [viewport_container2, viewport_container3, viewport_container4]
-		# Since the player one viewport has to always be visible, start the iteration
-		# at one
-		for i in range(1, local_players_count):
-			viewport_containers[i].show()
+#		var viewport_containers = [viewport_container1, viewport_container2, 
+#								viewport_container3, viewport_container4]
+#
+#		for i in range(0, local_players_count):
+#			viewport_containers[i].show()
+		pass
 	else:
 		game_view.columns = 1
 	
@@ -53,6 +56,17 @@ func _ready():
 	# if you should do things that way, or find a different way to set camera
 	# limits
 	#set_camera_limits()
+
+
+func enable_player_camera(player_id):
+	if player_id == "player1":
+		viewport_container1.show()
+	elif player_id == "player2":
+		viewport_container2.show()
+	elif player_id == "player3":
+		viewport_container3.show()
+	elif player_id == "player4":
+		viewport_container4.show()
 
 
 func set_camera_limits():
