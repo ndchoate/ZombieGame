@@ -36,6 +36,19 @@ onready var player_ready_statuses = [NO_PLAYER, NO_PLAYER, NO_PLAYER, NO_PLAYER]
 
 onready var local_player_map = $"/root/LocalPlayerMap"
 
+# Online specific attributes
+const DEFAULT_PORT = 10567
+
+# Max number of players.
+const MAX_PEERS = 4
+
+var peer = null
+
+
+func _ready():
+	host_game("Player 1")
+
+
 func _input(event):
 	var device_id = event.get_device()
 	
@@ -60,6 +73,23 @@ func _input(event):
 		print("All players ready!")
 		create_input_actions_for_players()
 		get_tree().change_scene("res://GameView.tscn")
+
+
+"""
+RPC function for remote players to join a game
+"""
+remote func remote_player_join():
+	pass
+	
+
+"""
+Host a lobby for other plays to join online
+"""
+func host_game(new_player_name):
+	# player_name = new_player_name
+	peer = NetworkedMultiplayerENet.new()
+	peer.create_server(DEFAULT_PORT, MAX_PEERS)
+	get_tree().set_network_peer(peer)
 
 
 func add_device_to_local_player_map(device_id):

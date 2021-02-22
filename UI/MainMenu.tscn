@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://UI/fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI/NewGameButton.gd" type="Script" id=2]
+[ext_resource path="res://UI/JoinLobbyButton.gd" type="Script" id=3]
+[ext_resource path="res://UI/IPConnectDialog.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 71
@@ -10,6 +12,13 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=2]
 size = 32
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://UI/fonts/Montserrat-ExtraBold.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = SubResource( 3 )
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -39,11 +48,54 @@ margin_right = 1024.0
 margin_bottom = 600.0
 size_flags_vertical = 3
 
-[node name="MenuButton" type="MenuButton" parent="VBoxContainer/Buttons"]
+[node name="NewGame" type="MenuButton" parent="VBoxContainer/Buttons"]
 margin_right = 1024.0
 margin_bottom = 46.0
 custom_fonts/font = SubResource( 2 )
 text = "New Game"
 align = 0
 script = ExtResource( 2 )
-[connection signal="pressed" from="VBoxContainer/Buttons/MenuButton" to="VBoxContainer/Buttons/MenuButton" method="_on_MenuButton_pressed"]
+
+[node name="JoinLobby" type="MenuButton" parent="VBoxContainer/Buttons"]
+margin_top = 50.0
+margin_right = 1024.0
+margin_bottom = 96.0
+custom_fonts/font = SubResource( 2 )
+text = "Join Lobby"
+align = 0
+script = ExtResource( 3 )
+
+[node name="IPConnectDialog" type="AcceptDialog" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -298.0
+margin_top = -63.5
+margin_right = 298.0
+margin_bottom = 63.5
+window_title = "Lobby IP Address"
+dialog_text = "Enter the IP address of the peer to connect to:
+"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="IPConnectDialog"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -290.0
+margin_top = -24.5
+margin_right = 290.0
+margin_bottom = 27.5
+custom_fonts/font = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="VBoxContainer/Buttons/NewGame" to="VBoxContainer/Buttons/NewGame" method="_on_MenuButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/JoinLobby" to="VBoxContainer/Buttons/JoinLobby" method="_on_MenuButton_pressed"]
+[connection signal="confirmed" from="IPConnectDialog" to="IPConnectDialog" method="_on_IPConnectDialog_confirmed"]
